@@ -73,31 +73,4 @@ hl.config({
     force_zero_scaling = true
   },
 })
-hl.config({
-  plugin = {
-    hyprbars = {
-      bar_height = 10,
-      ["col.text"] = "rgba(ffffffff)",
-      bar_text_size = 7,
-      bar_text_font = "Courier New Bold",
-      bar_precedence_over_border = true,
-    }
-  }
-})
 
--- Registering buttons directly via Lua [6, 2]
-hl.plugin.hyprbars.add_button({
-  bg_color = "rgb(ff4040)",
-  fg_color = "rgb(ffffff)",
-  size = 8,
-  icon = "X",
-  action = "hyprctl dispatch killactive",
-})
-
-hl.plugin.hyprbars.add_button({
-  bg_color = "rgb(eeee11)",
-  fg_color = "rgb(000000)",
-  size = 8,
-  icon = "O",
-  action = "hyprctl dispatch fullscreen 1",
-})
