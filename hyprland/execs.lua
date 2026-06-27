@@ -2,7 +2,7 @@ local vars = require("hyprland.variables")
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("qs -c noctalia-shell")
-    hl.exec_cmd("systemctl --user start hyprpolkitagent")
+    hl.exec_cmd("systemctl --user start hyprpolkitagent") -- required without uwsm
     hl.exec_cmd("hyprpm reload")
     hl.exec_cmd("hyprsunset")
     hl.exec_cmd("ibus start")

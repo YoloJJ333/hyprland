@@ -1,7 +1,7 @@
 -- general.lua
 
 -- monitors
--- https://wiki.hypr.land/Configuring/Monitors/
+-- https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1.5 })
 
 hl.config({
@@ -12,7 +12,7 @@ hl.config({
     resize_on_border = true
   },
 
-  -- https://wiki.hypr.land/Configuring/Variables/#animations
+  -- https://wiki.hypr.land/Configuring/Basics/Variables/#animations
   animations = {
     enabled = true, -- yes, please :)
 
