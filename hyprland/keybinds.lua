@@ -3,8 +3,8 @@ local vars = require("hyprland.variables")
 -- apps
   hl.bind("SUPER + RETURN", hl.dsp.exec_cmd(vars.terminal))
   hl.bind("SUPER + T", hl.dsp.exec_cmd(vars.terminal))
-  hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(vars.launcher.. " -show combi"), { release = true })
-  hl.bind("SUPER + SUPER_R", hl.dsp.exec_cmd(vars.launcher.. " -show combi"), { release = true })
+  hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("pkill " ..vars.launcher.. " || " ..vars.launcher.. " -show combi"), { release = true })
+  hl.bind("SUPER + SUPER_R", hl.dsp.exec_cmd("pkill " ..vars.launcher.. " || " ..vars.launcher.. " -show combi"), { release = true })
   hl.bind("SUPER + W", hl.dsp.exec_cmd(vars.browser))
   hl.bind("SUPER + E", hl.dsp.exec_cmd(vars.fileManager))
 
