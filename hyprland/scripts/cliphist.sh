@@ -1,0 +1,1 @@
+/home/YoloJJ333/.config/rofi/cliphist.sh

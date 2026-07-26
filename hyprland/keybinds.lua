@@ -89,4 +89,4 @@ local vars = require("hyprland.variables")
   hl.bind("SUPER + BackSpace", function() hl.config({ cursor = { zoom_factor = 1.0 } }) end)
 
   -- clipboard
-  hl.bind("SUPER + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"))
+  hl.bind("SUPER + V", hl.dsp.exec_cmd(vars.scpt_copy))
