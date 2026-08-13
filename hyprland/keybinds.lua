@@ -1,10 +1,13 @@
 local vars = require("hyprland.variables")
 
+-- system
+  hl.bind("SUPER + L", hl.dsp.exec_cmd(vars.scpt_lock_scr_wallpaper .. " ; " .. vars.screen_lock))
+
 -- apps
   hl.bind("SUPER + RETURN", hl.dsp.exec_cmd(vars.terminal))
   hl.bind("SUPER + T", hl.dsp.exec_cmd(vars.terminal))
-  hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("pkill " ..vars.launcher.. " || " ..vars.launcher.. " -show combi"), { release = true })
-  hl.bind("SUPER + SUPER_R", hl.dsp.exec_cmd("pkill " ..vars.launcher.. " || " ..vars.launcher.. " -show combi"), { release = true })
+  hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd("pkill " .. vars.launcher .. " || " .. vars.launcher .. " -show combi"), { release = true })
+  hl.bind("SUPER + SUPER_R", hl.dsp.exec_cmd("pkill " .. vars.launcher .. " || " .. vars.launcher .. " -show combi"), { release = true })
   hl.bind("SUPER + W", hl.dsp.exec_cmd(vars.browser))
   hl.bind("SUPER + E", hl.dsp.exec_cmd(vars.fileManager))
 
@@ -26,7 +29,8 @@ local vars = require("hyprland.variables")
     hl.bind("SUPER + ".. i, hl.dsp.focus({ workspace = i }))
   end
   hl.bind("SUPER + 0", hl.dsp.focus({ workspace = 10 }))
-  hl.bind("SUPER + S", hl.dsp.workspace.toggle_special(""))
+  hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("scratchpad"))
+  hl.bind("SUPER + CTRL + S", hl.dsp.workspace.toggle_special("majic"))
   hl.bind("SUPER + CTRL + left", hl.dsp.focus({ workspace = "-1" }))
   hl.bind("SUPER + CTRL + right", hl.dsp.focus({ workspace = "+1" }))
   
@@ -41,7 +45,8 @@ local vars = require("hyprland.variables")
     hl.bind("SUPER + SHIFT + ".. i, hl.dsp.window.move({ workspace = i }))
   end
   hl.bind("SUPER + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
-  hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special" }))
+  hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:scratchpad" }))
+  hl.bind("SUPER + CTRL + SHIFT + S", hl.dsp.window.move({ workspace = "special:majic" }))
   hl.bind("SUPER + CTRL + SHIFT + left", hl.dsp.window.move({ workspace = "-1" }))
   hl.bind("SUPER + CTRL + SHIFT + right", hl.dsp.window.move({ workspace = "+1" }))
 
@@ -49,11 +54,11 @@ local vars = require("hyprland.variables")
   hl.bind("SUPER + semicolon", hl.dsp.layout("splitratio -0.1"), { repeating = true })
   hl.bind("SUPER + apostrophe", hl.dsp.layout("splitratio +0.1"), { repeating = true })
   hl.bind("SUPER + ALT + space", hl.dsp.window.float({ action = "toggle" }))
-  hl.bind("SUPER + D", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" })) -- Maximize
-  hl.bind("SUPER + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" })) -- Fullscreen
+  hl.bind("SUPER + D", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
+  hl.bind("SUPER + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
   hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
   -- shrink window
-  hl.bind("CTRL + SUPER + backslash", hl.dsp.exec_cmd("hyprctl dispatch resizeactive exact 640 480"))
+  hl.bind("SUPER + CTRL + backslash", hl.dsp.exec_cmd("hyprctl dispatch resizeactive exact 640 480"))
 
 -- utility
   -- audio

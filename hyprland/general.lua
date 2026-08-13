@@ -45,7 +45,8 @@ hl.config({
       "workspaces,    1,     1.94,  almostLinear, fade",
       "workspacesIn,  1,     1.21,  almostLinear, fade",
       "workspacesOut, 1,     1.94,  almostLinear, fade",
-      "zoomFactor,    1,     7,     quick"
+      "zoomFactor,    1,     7,     quick",
+      "specialWorkspace, 1, 6, almostLinear, slidevert"
     }
   },
 
