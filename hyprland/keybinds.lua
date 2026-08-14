@@ -2,6 +2,7 @@ local vars = require("hyprland.variables")
 
 -- system
   hl.bind("SUPER + L", hl.dsp.exec_cmd(vars.scpt_lock_scr_wallpaper .. " ; " .. vars.screen_lock))
+  hl.bind("SUPER + CTRL + L", hl.dsp.exec_cmd("qs -c " .. vars.qs_config .. " ipc call session open"))
 
 -- apps
   hl.bind("SUPER + RETURN", hl.dsp.exec_cmd(vars.terminal))
@@ -10,6 +11,7 @@ local vars = require("hyprland.variables")
   hl.bind("SUPER + SUPER_R", hl.dsp.exec_cmd("pkill " .. vars.launcher .. " || " .. vars.launcher .. " -show combi"), { release = true })
   hl.bind("SUPER + W", hl.dsp.exec_cmd(vars.browser))
   hl.bind("SUPER + E", hl.dsp.exec_cmd(vars.fileManager))
+  hl.bind("SUPER + P", hl.dsp.exec_cmd(vars.planner))
 
   -- school
   hl.bind("SUPER + A", hl.dsp.exec_cmd(vars.notes))

@@ -2,9 +2,12 @@
 # cliphist.sh            -> open the cliphist menu, copy the chosen entry
 # cliphist.sh preview .. -> popup the highlighted entry (full text, or the image)
 #                           rofi calls this itself via -on-selection-changed
+#
+# Tuned for swaync (advertises body-markup + body-images).
+# On a daemon without those (noctalia, mako, dunst), set both toggles to 0.
 
-ESCAPE_MARKUP=0   # 1 only if your daemon renders Pango markup (dunst/mako). noctalia: keep 0.
-BODY_IMAGE=0      # 1 if your daemon advertises the "body-images" capability (see notes)
+ESCAPE_MARKUP=1   # swaync renders Pango markup, so escape & < > in copied text
+BODY_IMAGE=1      # swaync renders <img> inside the body, not just as a corner icon
 
 sync_hint=string:x-canonical-private-synchronous:cliphist
 
@@ -42,10 +45,12 @@ if [ "$1" = "preview" ]; then
             424d????) ext=bmp ;; 52494646) ext=webp ;;
         esac
         if [ -n "$ext" ]; then
-            img="$tmp.$ext"; mv -f "$tmp" "$img"
+            # unique filename per id: a single reused path can get cached, which
+            # would keep redisplaying the first image you highlighted
+            img="/tmp/cliphist-preview/$id.$ext"; mv -f "$tmp" "$img"
             if [ "$BODY_IMAGE" = 1 ]; then
-                notify "Clipboard image" "<img src=\"file://$img\" alt=\"clipboard image\"/>" \
-                       -h "string:image-path:file://$img" -i "$img"
+                # swaync pulls the <img> tag out of the body and renders it inline
+                notify "Clipboard image" "<img src=\"file://$img\" alt=\"clipboard\"/>"
             else
                 notify "Clipboard image" "${ext^^} · press Enter to copy" \
                        -h "string:image-path:file://$img" -i "$img"

@@ -5,7 +5,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("systemctl --user start hyprpolkitagent") -- required without uwsm
   hl.exec_cmd("hyprpm reload")
   hl.exec_cmd("iio-hyprland")
-  hl.exec_cmd("quickshell -c yolojj333")
+  hl.exec_cmd("quickshell -c " .. vars.qs_config)
   hl.exec_cmd("hyprpaper")
   hl.exec_cmd("hyprsunset")
   hl.exec_cmd("ibus start")

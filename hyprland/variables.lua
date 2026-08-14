@@ -4,11 +4,14 @@ local script = base .. "/scripts"
 return {
   -- system
   screen_lock = "hyprlock",
+  qs_config = "yolojj333",
+
   -- apps
   terminal = "kitty",
   launcher = "rofi",
   fileManager = "dolphin",
   browser = "brave",
+  planner = "planify",
 
   -- scripts
   scpt_brightness = script .. "/brightness.sh",
