@@ -35,14 +35,10 @@ local vars = require("hyprland.variables")
   hl.bind("SUPER + CTRL + S", hl.dsp.workspace.toggle_special("majic"))
   hl.bind("SUPER + CTRL + left", hl.dsp.focus({ workspace = "-1" }))
   hl.bind("SUPER + CTRL + right", hl.dsp.focus({ workspace = "+1" }))
+  hl.bind("SHIFT + ALT + tab", hl.dsp.focus({ workspace = "-1" }))
+  hl.bind("ALT + tab", hl.dsp.focus({ workspace = "+1" }))
   
   -- moveto
-  hl.bind("SUPER + SHIFT + left", hl.dsp.window.move({ direction = "l" }))
-  hl.bind("SUPER + SHIFT + right", hl.dsp.window.move({ direction = "r" }))
-  hl.bind("SUPER + SHIFT + up", hl.dsp.window.move({ direction = "u" }))
-  hl.bind("SUPER + SHIFT + down", hl.dsp.window.move({ direction = "d" }))
-  hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
-  
   for i = 1, 9 do
     hl.bind("SUPER + SHIFT + ".. i, hl.dsp.window.move({ workspace = i }))
   end
@@ -52,6 +48,13 @@ local vars = require("hyprland.variables")
   hl.bind("SUPER + CTRL + SHIFT + left", hl.dsp.window.move({ workspace = "-1" }))
   hl.bind("SUPER + CTRL + SHIFT + right", hl.dsp.window.move({ workspace = "+1" }))
 
+  -- organize
+  hl.bind("SUPER + SHIFT + left", hl.dsp.window.move({ direction = "l" }))
+  hl.bind("SUPER + SHIFT + right", hl.dsp.window.move({ direction = "r" }))
+  hl.bind("SUPER + SHIFT + up", hl.dsp.window.move({ direction = "u" }))
+  hl.bind("SUPER + SHIFT + down", hl.dsp.window.move({ direction = "d" }))
+  hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
+  
   -- modify
   hl.bind("SUPER + semicolon", hl.dsp.layout("splitratio -0.1"), { repeating = true })
   hl.bind("SUPER + apostrophe", hl.dsp.layout("splitratio +0.1"), { repeating = true })
