@@ -18,7 +18,7 @@ local vars = require("hyprland.variables")
 
 -- window
   hl.bind("SUPER + Q", hl.dsp.window.close())
-  hl.bind("SUPER + SHIFT + ALT + Q", hl.dsp.exec_cmd("hyprctl kill"))
+  hl.bind("SUPER + CTRL + ALT + Q", hl.dsp.exec_cmd("hyprctl kill"))
   
   -- focus
   hl.bind("SUPER + left", hl.dsp.focus({ direction = "l" }))
