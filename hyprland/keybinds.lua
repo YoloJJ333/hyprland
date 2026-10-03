@@ -94,9 +94,9 @@ local vars = require("hyprland.variables")
   hl.bind("SUPER + CTRL + PRINT", hl.dsp.exec_cmd("hyprshot -z -t 2500 -m active -m output"))
 
   -- zoom
-  hl.bind("SUPER + minus", function() hl.config({ cursor = { zoom_factor = math.max(1.0, hl.get_config("cursor.zoom_factor") * 0.9) } }) end, { repeating = true })
-  hl.bind("SUPER + equal", function() hl.config({ cursor = { zoom_factor = math.min(5.0, hl.get_config("cursor.zoom_factor") * 1.1) } }) end, { repeating = true })
-  hl.bind("SUPER + BackSpace", function() hl.config({ cursor = { zoom_factor = 1.0 } }) end)
+  hl.bind("SUPER + minus", function() hl.config({ cursor = { zoom_factor = math.max(1.0, hl.get_config("cursor.zoom_factor") * 0.9) } }) end, { repeating = true, locked = true })
+  hl.bind("SUPER + equal", function() hl.config({ cursor = { zoom_factor = math.min(5.0, hl.get_config("cursor.zoom_factor") * 1.1) } }) end, { repeating = true, locked = true })
+  hl.bind("SUPER + BackSpace", function() hl.config({ cursor = { zoom_factor = 1.0 } }) end, { locked = true })
 
   -- clipboard
   hl.bind("SUPER + V", hl.dsp.exec_cmd(vars.scpt_copy))
