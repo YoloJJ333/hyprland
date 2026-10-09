@@ -3,6 +3,7 @@ local vars = require("hyprland.variables")
 -- system
   hl.bind("SUPER + L", hl.dsp.exec_cmd(vars.scpt_lock_scr_wallpaper .. " ; " .. vars.screen_lock))
   hl.bind("SUPER + CTRL + L", hl.dsp.exec_cmd("qs -c " .. vars.qs_config .. " ipc call session open"))
+  hl.bind("ALT + space", hl.dsp.exec_cmd(vars.scpt_kb_layout))
 
 -- apps
   hl.bind("SUPER + RETURN", hl.dsp.exec_cmd(vars.terminal))

@@ -17,6 +17,7 @@ return {
   scpt_brightness = script .. "/brightness.sh",
   scpt_copy = script .. "/cliphist.sh",
   scpt_lock_scr_wallpaper = script .. "/update-lock-wallpaper.sh",
+  scpt_kb_layout = script .. "/switch_kb_layout.sh",
 
   -- school
   notes = "xournalpp"

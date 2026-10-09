@@ -58,7 +58,6 @@ hl.config({
     kb_layout = "us,us",
     kb_variant = ",colemak_dh",
     kb_model = "microsoftsurface",
-    kb_options = "grp:alt_space_toggle",
 
     numlock_by_default = true,
     repeat_delay = 300,
