@@ -1,3 +1,4 @@
+hl.env("PATH", "/home/YoloJJ333/.local/bin " .. os.getenv("PATH"))
 hl.env("HYPRSHOT_DIR", "/home/YoloJJ333/Pictures/Screenshots/")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("QT_QPA_PLATFORM", "wayland")
