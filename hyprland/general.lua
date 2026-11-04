@@ -9,7 +9,13 @@ hl.config({
     gaps_in = 1, -- temporary
     gaps_out = 5, 1, 1, 1, -- temporary | top, right, bottom, left
     border_size = 1,
-    resize_on_border = true
+    resize_on_border = true,
+    col = {
+      active_border = {
+        colors = { "#ff0000", "#ffff00", "#00ff00", "#00ffff", "#0000ff", "#ff00ff" },
+        angle = 0,
+      },
+    },
   },
 
   -- https://wiki.hypr.land/Configuring/Basics/Variables/#animations
@@ -74,3 +80,25 @@ hl.config({
   },
 })
 
+hl.curve("border_linear", {
+  type = "bezier",
+  points = { { 0, 0 }, { 1, 1 } },
+})
+
+local border_rotation_enabled = false
+local function apply_border_rotation()
+  hl.animation({
+    leaf = "borderangle",
+    enabled = border_rotation_enabled,
+    speed = 80,
+    bezier = "border_linear",
+    style = border_rotation_enabled and "loop" or "once",
+  })
+end
+
+apply_border_rotation()
+
+hl.bind("SUPER + R", function()
+  border_rotation_enabled = not border_rotation_enabled
+  apply_border_rotation()
+end)
