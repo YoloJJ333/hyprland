@@ -6,8 +6,8 @@ hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1.5 })
 
 hl.config({
   general = {
-    gaps_in = 1, -- temporary
-    gaps_out = 5, 1, 1, 1, -- temporary | top, right, bottom, left
+    gaps_in = 1,
+    gaps_out = 2, 1, 1, 1,
     border_size = 1,
     resize_on_border = true,
     col = {
