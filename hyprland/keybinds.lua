@@ -28,10 +28,9 @@ local vars = require("hyprland.variables")
   hl.bind("SUPER + down", hl.dsp.focus({ direction = "d" }))
 
   -- goto
-  for i = 1, 9 do
-    hl.bind("SUPER + ".. i, hl.dsp.focus({ workspace = i }))
+  for i = 1, 10 do
+    hl.bind("SUPER + " .. i % 10, hl.dsp.focus({ workspace = i }))
   end
-  hl.bind("SUPER + 0", hl.dsp.focus({ workspace = 10 }))
   hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("scratchpad"))
   hl.bind("SUPER + CTRL + S", hl.dsp.workspace.toggle_special("majic"))
   hl.bind("SUPER + CTRL + left", hl.dsp.focus({ workspace = "-1" }))
@@ -40,10 +39,9 @@ local vars = require("hyprland.variables")
   hl.bind("ALT + tab", hl.dsp.focus({ workspace = "+1" }))
   
   -- moveto
-  for i = 1, 9 do
-    hl.bind("SUPER + SHIFT + ".. i, hl.dsp.window.move({ workspace = i }))
+  for i = 1, 10 do
+    hl.bind("SUPER + SHIFT + " .. i % 10, hl.dsp.window.move({ workspace = i }))
   end
-  hl.bind("SUPER + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
   hl.bind("SUPER + SHIFT + S", hl.dsp.window.move({ workspace = "special:scratchpad" }))
   hl.bind("SUPER + CTRL + SHIFT + S", hl.dsp.window.move({ workspace = "special:majic" }))
   hl.bind("SUPER + CTRL + SHIFT + left", hl.dsp.window.move({ workspace = "-1" }))
