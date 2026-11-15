@@ -85,30 +85,36 @@ local vars = require("hyprland.variables")
   hl.bind("SUPER + CTRL + XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset temperature 6500"), { repeating = true, locked = true })
 
   -- screenshot
-  local copy_only = { save = false, clipboard = true }
-  local save_copy = { save = true, clipboard = true }
-  local function hyprcapture() return hl.plugin.hyprcapture end
+  local function capture(mode, save, editor)
+    if save == "record" then
+      return function() vars.screenshot.record_toggle(mode) end
+    elseif editor then
+      return function() vars.screenshot.open_editor(mode, { save = not not save }) end
+    else
+      return function() vars.screenshot.open(mode, { save = not not save }) end
+    end
+  end
 
     -- region
-    hl.bind("PRINT", function() hyprcapture().open("region", copy_only) end)
-    hl.bind("CTRL + PRINT", function() hyprcapture().open("region", save_copy) end)
-    hl.bind("ALT + PRINT", function() hyprcapture().open_editor("region", copy_only) end)
-    hl.bind("CTRL + ALT + PRINT", function() hyprcapture().open_editor("region", save_copy) end)
-    hl.bind("PRINT + R", function() hyprcapture().record_toggle("region") end)
+    hl.bind("PRINT", capture("region"))
+    hl.bind("CTRL + PRINT", capture("region", true))
+    hl.bind("ALT + PRINT", capture("region", false, true))
+    hl.bind("CTRL + ALT + PRINT", capture("region", true, true))
+    hl.bind("PRINT + R", capture("region", "record"))
 
     -- window
-    hl.bind("SHIFT + PRINT", function() hyprcapture().open("window", copy_only) end)
-    hl.bind("CTRL + SHIFT + PRINT", function() hyprcapture().open("window", save_copy) end)
-    hl.bind("SHIFT + ALT + PRINT", function() hyprcapture().open_editor("window", copy_only) end)
-    hl.bind("CTRL + SHIFT + ALT + PRINT", function() hyprcapture().open_editor("window", save_copy) end)
-    hl.bind("SHIFT + PRINT + R", function() hyprcapture().record_toggle("window") end)
+    hl.bind("SHIFT + PRINT", capture("window"))
+    hl.bind("CTRL + SHIFT + PRINT", capture("window", true))
+    hl.bind("SHIFT + ALT + PRINT", capture("window", false, true))
+    hl.bind("CTRL + SHIFT + ALT + PRINT", capture("window", true, true))
+    hl.bind("SHIFT + PRINT + R", capture("window", "record"))
 
     -- monitor
-    hl.bind("SUPER + PRINT", function() hyprcapture().open("fullscreen", copy_only) end)
-    hl.bind("SUPER + CTRL + PRINT", function() hyprcapture().open("fullscreen", save_copy) end)
-    hl.bind("SUPER + ALT + PRINT", function() hyprcapture().open_editor("fullscreen", copy_only) end)
-    hl.bind("SUPER + CTRL + ALT + PRINT", function() hyprcapture().open_editor("fullscreen", save_copy) end)
-    hl.bind("SUPER + PRINT + R", function() hyprcapture().record_toggle("fullscreen") end)
+    hl.bind("SUPER + PRINT", capture("fullscreen"))
+    hl.bind("SUPER + CTRL + PRINT", capture("fullscreen", true))
+    hl.bind("SUPER + ALT + PRINT", capture("fullscreen", false, true))
+    hl.bind("SUPER + CTRL + ALT + PRINT", capture("fullscreen", true, true))
+    hl.bind("SUPER + PRINT + R", capture("fullscreen", "record"))
 
   -- zoom
   hl.bind("SUPER + minus", function() hl.config({ cursor = { zoom_factor = math.max(1.0, hl.get_config("cursor.zoom_factor") * 0.9) } }) end, { repeating = true, locked = true })

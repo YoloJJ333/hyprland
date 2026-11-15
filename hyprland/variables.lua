@@ -11,6 +11,7 @@ return {
   launcher = "rofi",
   fileManager = "dolphin",
   browser = "brave",
+  screenshot = hl.plugin.hyprcapture,
   planner = "planify",
 
   -- scripts
