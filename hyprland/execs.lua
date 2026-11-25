@@ -4,7 +4,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("hypridle")
   hl.exec_cmd("systemctl --user start hyprpolkitagent") -- required without uwsm
   hl.exec_cmd("hyprpm reload")
-  hl.exec_cmd("iio-hyprland")
+  -- hl.exec_cmd("iio-hyprland") -- waiting for project to be updated to preserve other monitor settings
   hl.exec_cmd("quickshell -c " .. vars.qs_config)
   hl.exec_cmd("hyprpaper")
   hl.exec_cmd("hyprsunset")
